@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7.1.1. Actividad del taller</title>
+    
+    <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 
 
 <body>
- <div>
-    <button id="button" onclick="Hola()">Saludar</button>
-    <script>
-        function Hola(){
-            document.getElementById('button').addEventListener('click',function(){
-                alert("Hola!");
-            })
 
-        }
-    </script>
+ <div id="container">
+    <button id="button" onclick="Hola()">Saludar</button>
  </div>
+
+ <script src="eventos.js"></script>
     
+ <script>
+     function Hola() {
+        event.stopPropagation(); //  Agregué la función event.stopPropagation ya que sin ella, al hacer click en el botón 
+                                 //  "Saludar" se disparaba también la alerta correspondiente al div, debido a que el botón  
+                                 //  se encuentra incluido en el div. De esta manera, las alertas solo se disparan al hacer 
+                                 //  click en el boton o en el div. Y cada alerta se dispara solo al presionar en su lugar 
+                                 //  correspondiente.
+         alert("Hola!");
+     }
+ </script>
+
+ 
 </body>
 
 </html>
